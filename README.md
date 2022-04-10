@@ -40,7 +40,7 @@ The react render is written in the index.js file:
 
 ![alt text](https://github.com/madhavms/React-Context-Provider-Example/blob/master/Images/6.png)
 
-[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://www.youtube.com/watch?v=ozueVnfPuTQ)
+[![Watch the video](https://github.com/madhavms/React-Context-Provider-Example/blob/master/Images/video_1.png)](https://www.youtube.com/watch?v=ozueVnfPuTQ)
 
 It can be seen from the recording that when
 the context is updated the child component also re-renders even though it doesn’t use
