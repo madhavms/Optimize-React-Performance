@@ -14,20 +14,7 @@ Also during the course of the project it was seen that the children of the compo
 Here 'Welcome' is the parent component which is shown below. It has a child component
 called 'Counter'.
 
-'''
-import React from 'react';
-import Counter from './Counter'
-const Welcome = (props) => {
-console.log('Welcome - Parent of all components')
-return(
-<div>
-<h1>Welcome to our Counter Application!</h1>
-<Counter/>
-</div>
-);
-}
-export default Welcome;
-'''
+![alt text](https://github.com/madhavms/React-Context-Provider-Example/blob/master/Images/1.png)
 
 The <Counter/> component is shown below. This accesses state from the context provider.
 import React, {useContext} from 'react';
