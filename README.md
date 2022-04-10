@@ -17,78 +17,32 @@ called 'Counter'.
 ![alt text](https://github.com/madhavms/React-Context-Provider-Example/blob/master/Images/1.png)
 
 The <Counter/> component is shown below. This accesses state from the context provider.
-import React, {useContext} from 'react';
-import {CounterContext} from './CounterContext';
-import CounterChild from './CounterChild';
-const Counter = (props) => {
-console.log('Counter - Child of Welcome. I use context.');
-const [count, setCount] = useContext(CounterContext);
-const incrementCount = (e) => {
-setCount(prevCount => prevCount + 1);
-}
-const resetCount = (e) => {
-setCount(0);
-}
-return(
-<div>
-<p>The count is: {count}</p>
-<button onClick={incrementCount}>Increment Count</button>
-<button onClick={resetCount} style={{'margin':'10px'}}>Reset Count</button>
-<CounterChild/>
-</div>
-);
-};
-export default Counter;
-Below shown is <CounterChild/>, the child of the <Counter/> component. We console log
+
+![alt text](https://github.com/madhavms/React-Context-Provider-Example/blob/master/Images/2.png)
+
+Below shown is 'CounterChild', the child of the 'Counter' component. We console log
 inside these components to understand whether the child component would re-render when
-the context state is modified from the parent component <Counter/>.
-import React from 'react';
-const CounterChild = () => {
-console.log('Child of Counter');
-return(
-<p>Hi I'm a child of counter.</p>
-);
-}
-//export default React.memo(CounterChild);
-export default CounterChild;
-Below shown is the <ContextProvider/> which is a wrapper component that provides the
+the context state is modified from the parent component 'Counter'.
+
+![alt text](https://github.com/madhavms/React-Context-Provider-Example/blob/master/Images/3.png)
+
+Below shown is the 'ContextProvider' which is a wrapper component that provides the
 values to be accessed by children using Context API:
-import React, {createContext, useState} from 'react';
-// creating context
-export const CounterContext = createContext();
-// context provider
-export const CounterProvider = (props) => {
-const [count, setCount] = useState(0);
-return(<CounterContext.Provider value={[count, setCount]}>
-{props.children}
-</CounterContext.Provider>);
-}
-In the <App/> component, we can see that only the <Welcome/> component is written since
+
+![alt text](https://github.com/madhavms/React-Context-Provider-Example/blob/master/Images/4.png)
+
+In the 'App' component, we can see that only the 'Welcome' component is written since
 it's the parent component for the other components and wraps them.
-import "./App.css";
-import Welcome from "./components/Welcome";
-import { CounterProvider } from "./components/CounterContext";
-function App() {
-return (
-<CounterProvider>
-<div className="App">
-<Welcome/>
-</div>
-</CounterProvider>
-);
-}
-export default App;
+
+![alt text](https://github.com/madhavms/React-Context-Provider-Example/blob/master/Images/5.png)
+
 The react render is written in the index.js file:
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-const container = document.getElementById('root');
-ReactDOM.render(
-<App/>,container
-);
-Video Url: Child re-render on context change. It can be seen from the recording that when
+
+![alt text](https://github.com/madhavms/React-Context-Provider-Example/blob/master/Images/6.png)
+
+[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://www.youtube.com/watch?v=ozueVnfPuTQ)
+
+It can be seen from the recording that when
 the context is updated the child component also re-renders even though it doesn’t use
 context. This is as expected since React causes the child components to re-render when the
 state of the parent component changes. It is described well in this article: Re-rendering in
