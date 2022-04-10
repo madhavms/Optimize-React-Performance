@@ -40,57 +40,27 @@ The react render is written in the index.js file:
 
 ![alt text](https://github.com/madhavms/React-Context-Provider-Example/blob/master/Images/6.png)
 
+#### Child component re-renders when parent updates:
 [![Watch the video](https://github.com/madhavms/React-Context-Provider-Example/blob/master/Images/video_1.png)](https://www.youtube.com/watch?v=ozueVnfPuTQ)
 
-It can be seen from the recording that when
-the context is updated the child component also re-renders even though it doesn’t use
-context. This is as expected since React causes the child components to re-render when the
-state of the parent component changes. It is described well in this article: Re-rendering in
-React.
+
+It can be seen from the recording that when the context is updated the child component also re-renders even though it doesn’t use context. This is as expected since React causes the child components to re-render when the
+state of the parent component changes. It is described well in this article: 
+[Link to Re-rendering in React](https://www.geeksforgeeks.org/re-rendering-components-in-reactjs/)
+
 So there are two ways of avoiding re-render:
-● Memoize the child component using React.memo(ChildComponent).
-export default React.memo(CounterChild);
-● Instead of writing the child component inside the parent pass it as render props to the
-parent component.
-import React, {useContext} from 'react';
-import {CounterContext} from './CounterContext';
-const Counter = (props) => {
-console.log('Counter - Child of Welcome. I use context.');
-const [count, setCount] = useContext(CounterContext);
-const incrementCount = (e) => {
-setCount(prevCount => prevCount + 1);
-}
-const resetCount = (e) => {
-setCount(0);
-}
-return(
-<div>
-<p>The count is: {count}</p>
-<button onClick={incrementCount}>Increment Count</button>
-<button onClick={resetCount} style={{'margin':'10px'}}>Reset
-Count</button>
-{props.render} //This render child component passed as render prop
-</div>
-);
-};
-export default Counter;
-It can be seen below that the child component is passed as render props inside the
-parent component.
-import React from 'react';
-import Counter from './Counter';
-import CounterChild from './CounterChild';
-const Welcome = (props) => {
-console.log('Welcome - Parent of all components')
-return(
-<div>
-<h1>Welcome to our Counter Application!</h1>
-<Counter render={<CounterChild/>}>
-</Counter>
-</div>
-);
-}
-export default Welcome;
+1. Memoize the child component using React.memo(ChildComponent).
+
+![alt text](https://github.com/madhavms/React-Context-Provider-Example/blob/master/Images/7.png)
+
+2. Instead of writing the child component inside the parent pass it as render props to the parent component.
+
+![alt text](https://github.com/madhavms/React-Context-Provider-Example/blob/master/Images/8.png)
+
 In the below video it is clearly seen that the child component is not re-rendered on
 context change in the parent when the child component is passed as render props to
 the parent.
-Child Components passed as render props.
+
+#### Child component doesn't re-render since its passed as render props:
+
+[![Watch the video](https://github.com/madhavms/React-Context-Provider-Example/blob/master/Images/video_2.png)](https://www.youtube.com/watch?v=Flmqbb8rDXQ)
