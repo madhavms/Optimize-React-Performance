@@ -8,7 +8,7 @@ const [elements, setElements] = useContext(ElementsContext);
 
 const incrementCount = (e) => {
     setCount(prevCount => prevCount + 1);
-    setElements(prevElements => [...prevElements, 'Element '+(Number(count)+1)]);
+    setElements(prevElements => [...prevElements, 'Element'+(Number(count)+1)]);
 }
 
 const resetCount = (e) => {
