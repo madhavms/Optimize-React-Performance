@@ -49,7 +49,15 @@ state of the parent component changes. It is described well in this article:
 [Link to Re-rendering in React](https://www.geeksforgeeks.org/re-rendering-components-in-reactjs/)
 
 So there are two ways of avoiding re-render:
+
 1. Memoize the child component using React.memo(ChildComponent).
+
+   React.memo is a higher order component.
+
+   If your component renders the same result given the same props, you can wrap it in a call to React.memo for a performance boost in some cases by          memoizing the result. This means that React will skip rendering the component, and reuse the last rendered result.
+
+   React.memo only checks for prop changes. If your function component wrapped in React.memo has a useState, useReducer or useContext Hook in its            implementation, it will still rerender when state or context change.
+
 
 ![alt text](https://github.com/madhavms/React-Context-Provider-Example/blob/master/Images/7.png)
 
