@@ -1,8 +1,8 @@
-### React Context Provider
+### Example to demonstarte render optimised React Component
 
-This is a React project which implements a basic basic web based counter, making use of Context Provider API for state management. This project serves as a test to re-affirm that while using the Context API only the components which are subscibed to the provider and their children re-render.
+This is a React project which implements a basic basic web based counter, making use of Context Provider API for state management. This project demonstrates how the unwanted renders are avoided when the state changes.
 
-Also during the course of the project it was seen that the children of the components subscribed to the provider wont re-render in the below scenarios:
+It can be seen that the children of the components subscribed to the provider(parent component) wont re-render in the below scenarios:
 
 1. When the child component is memoized using React.memo().
 
