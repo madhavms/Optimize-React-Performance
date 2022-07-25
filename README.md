@@ -1,4 +1,4 @@
-### Example to demonstarte render optimised React Component
+### Example to demonstrate render optimised React Component
 
 This is a React project which implements a basic basic web based counter, making use of Context Provider API for state management. This project demonstrates how the unwanted renders are avoided when the state changes.
 
