@@ -2,11 +2,13 @@
 
 This is a React project which implements a basic basic web based counter, making use of Context Provider API for state management. This project demonstrates how the unwanted renders are avoided when the state changes.
 
-It can be seen that the children of the components subscribed to the provider(parent component) wont re-render in the below scenarios:
+Generally if the child components are wrapped using a Context Provider the, the child components will be re-rendered when the state changes even if the state is not consumed.
 
-1. When the child component is memoized using React.memo().
+To aviod unwanted re-rendering of child components either of the below two steps can be used:
 
-2. When the child component was passed to the parent component as a render prop.
+1. Memoize the child component using React.memo().
+
+2. Pass down the child components as render props from the parent.
 
 
 ### Context Provider:
